@@ -1,0 +1,23 @@
+# service account keys - never commit
+service_account.json
+*.json
+!mnist/model/*.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# dataflow local output
+outputs*
+wordcount/wordcount.py
+
+# generated report
+*.html
+101006689-ms3-report.pdf
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
