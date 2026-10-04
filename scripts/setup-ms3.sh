@@ -94,14 +94,14 @@ wordcount)
   cd "$REPO_ROOT/wordcount"
   python3 wordcount.py $(common_flags) \
     --input gs://dataflow-samples/shakespeare/winterstale.txt \
-    --output "$BUCKET/result/outputs"
+    --output "$BUCKET/result/wordcount/outputs"
   ;;
 wordcount2)
   cd "$REPO_ROOT/wordcount"
   python3 wordcount2.py $(common_flags) \
     --input gs://dataflow-samples/shakespeare/winterstale.txt \
-    --output "$BUCKET/result/outputs" \
-    --output2 "$BUCKET/result/outputs2"
+    --output "$BUCKET/result/wordcount2/outputs" \
+    --output2 "$BUCKET/result/wordcount2/outputs2"
   ;;
 mnistbq)
   cd "$REPO_ROOT/mnist"
