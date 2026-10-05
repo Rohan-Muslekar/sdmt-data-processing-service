@@ -92,20 +92,20 @@ wordcount)
     cp "$WC" "$REPO_ROOT/wordcount/wordcount.py"
   fi
   cd "$REPO_ROOT/wordcount"
-  python3 wordcount.py $(common_flags) \
+  python3 wordcount.py $(common_flags) --job_name ms3-wordcount \
     --input gs://dataflow-samples/shakespeare/winterstale.txt \
     --output "$BUCKET/result/wordcount/outputs"
   ;;
 wordcount2)
   cd "$REPO_ROOT/wordcount"
-  python3 wordcount2.py $(common_flags) \
+  python3 wordcount2.py $(common_flags) --job_name ms3-wordcount2 \
     --input gs://dataflow-samples/shakespeare/winterstale.txt \
     --output "$BUCKET/result/wordcount2/outputs" \
     --output2 "$BUCKET/result/wordcount2/outputs2"
   ;;
 mnistbq)
   cd "$REPO_ROOT/mnist"
-  python3 mnistBQ.py \
+  python3 mnistBQ.py --job_name ms3-mnistbq \
     --runner DataflowRunner --project "$PROJECT" \
     --staging_location "$BUCKET/staging" --temp_location "$BUCKET/temp" \
     --model "$BUCKET/model" --setup_file ./setup.py \
@@ -115,7 +115,7 @@ mnistbq)
   ;;
 mniststream)
   cd "$REPO_ROOT/mnist"
-  python3 mnistPubSub.py \
+  python3 mnistPubSub.py --job_name ms3-mniststream \
     --runner DataflowRunner --project "$PROJECT" \
     --staging_location "$BUCKET/staging" --temp_location "$BUCKET/temp" \
     --model "$BUCKET/model" --setup_file ./setup.py \
@@ -126,7 +126,7 @@ mniststream)
   ;;
 design)
   cd "$REPO_ROOT"
-  python3 design/smartMeterDataflow.py $(common_flags) \
+  python3 design/smartMeterDataflow.py $(common_flags) --job_name ms3-design \
     --staging_location "$BUCKET/staging" \
     --input "projects/$PROJECT/topics/meterInput" \
     --output "projects/$PROJECT/topics/meterOutput" \
